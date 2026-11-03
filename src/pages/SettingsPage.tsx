@@ -357,6 +357,17 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
         </form>
       </NeoModal>
 
+      {/* Featured Platform / Verification Badge */}
+      <div className="bg-white border-[3px] border-[#121212] shadow-neo p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span className="text-xs font-black uppercase text-[#121212] block">Verified Platform</span>
+          <span className="text-[11px] font-bold text-neutral-600">Panam Dekho is listed on Sell With Boost</span>
+        </div>
+        <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+          <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '40px', width: 'auto' }} />
+        </a>
+      </div>
+
     </div>
   );
 };

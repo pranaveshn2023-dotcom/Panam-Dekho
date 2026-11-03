@@ -217,8 +217,11 @@ export const AuthScreen: React.FC<AuthScreenProps> = () => {
       </div>
 
       {/* Footer */}
-      <div className="text-center text-xs font-bold text-neutral-500 py-2 z-10">
-        PAANAM DEKHO © {new Date().getFullYear()} · Engineered for speed, clarity, and control
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center text-xs font-bold text-neutral-500 py-3 z-10">
+        <span>PAANAM DEKHO © {new Date().getFullYear()} · Engineered for speed, clarity, and control</span>
+        <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+          <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '40px', width: 'auto' }} />
+        </a>
       </div>
     </div>
   );

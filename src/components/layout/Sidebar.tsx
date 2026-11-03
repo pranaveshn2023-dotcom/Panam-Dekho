@@ -90,6 +90,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <span className="font-mono font-black">{isPrivacyMode ? '••' : `${stats?.savingsRate ?? 0}%`}</span>
           </div>
         </div>
+
+        {/* Sell With Boost Badge */}
+        <div className="flex flex-col items-center pt-1">
+          <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style={{ height: '32px', width: 'auto' }} />
+          </a>
+        </div>
       </div>
     </aside>
   );
