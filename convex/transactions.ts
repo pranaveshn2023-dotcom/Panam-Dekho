@@ -22,7 +22,7 @@ export const list = query({
     const all = await txQuery.order("desc").collect();
 
     // Filter in-memory for flexible combination of search, date range, type, category
-    return all.filter((tx) => {
+    const filtered = all.filter((tx) => {
       if (args.type && tx.type !== args.type) return false;
       if (args.category && args.category !== "all" && tx.category !== args.category) return false;
       if (args.startDate && tx.date < args.startDate) return false;
@@ -35,7 +35,8 @@ export const list = query({
         if (!matchesTitle && !matchesNotes && !matchesCategory) return false;
       }
       return true;
-    }).slice(0, args.limit ?? 100);
+    });
+    return args.limit ? filtered.slice(0, args.limit) : filtered;
   },
 });
 
