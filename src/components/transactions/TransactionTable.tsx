@@ -57,8 +57,16 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 
   // Sorting
   const sorted = [...filtered].sort((a, b) => {
-    if (sortOrder === 'newest') return b.date.localeCompare(a.date);
-    if (sortOrder === 'oldest') return a.date.localeCompare(b.date);
+    if (sortOrder === 'newest') {
+      const dateDiff = b.date.localeCompare(a.date);
+      if (dateDiff !== 0) return dateDiff;
+      return (b.createdAt ?? 0) - (a.createdAt ?? 0);
+    }
+    if (sortOrder === 'oldest') {
+      const dateDiff = a.date.localeCompare(b.date);
+      if (dateDiff !== 0) return dateDiff;
+      return (a.createdAt ?? 0) - (b.createdAt ?? 0);
+    }
     if (sortOrder === 'highest') return b.amount - a.amount;
     if (sortOrder === 'lowest') return a.amount - b.amount;
     return 0;
